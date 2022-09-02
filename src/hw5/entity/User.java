@@ -1,17 +1,20 @@
 package hw5.entity;
 
-import com.sun.jdi.Value;
-
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 public class User {
     private int userId;
     private String userName;
     private String nationalCode;
-    private Date birthday;
+    private String birthday;
     private String password;
+
+    public User() {
+    }
+
+    public User(int userId) {
+        this.userId = userId;
+    }
 
     public int getUserId() {
         return userId;
@@ -36,14 +39,14 @@ public class User {
     public void setNationalCode(String nationalCode) {
         if (nationalCode.length() == 10)
             this.nationalCode = nationalCode;
-        System.out.println("error:your national code is not true");
+        else this.nationalCode = "0000000000";
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -54,7 +57,7 @@ public class User {
     public void setPassword(String password) {
         if (password.length() >= 5 && password.length() <= 10)
             this.password = password;
-        System.out.println("error:password must be between 5 to 10 character");
+        else this.password = "0";
     }
 
     @Override

@@ -7,18 +7,9 @@ public class Article {
     private String title;
     private String brief;
     private String content;
-    private Date createDate;
+    private String createDate;
     private boolean isPublished;
-    private int userID;
     private User user;
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
-    }
 
     public User getUser() {
         return user;
@@ -28,7 +19,7 @@ public class Article {
         this.user = user;
     }
 
-    public Article(int articleId, String title, String brief, String content, Date createDate, boolean isPublished) {
+    public Article(int articleId, String title, String brief, String content, String createDate, boolean isPublished) {
         this.articleId = articleId;
         this.title = title;
         this.brief = brief;
@@ -37,11 +28,15 @@ public class Article {
         this.isPublished = isPublished;
     }
 
-    public Article(int articleId, String title, String brief) {
-        this.articleId = articleId;
+    public Article(String title, String brief) {
         this.title = title;
         this.brief = brief;
     }
+
+    public Article() {
+    }
+
+    ;
 
     public int getArticleId() {
         return articleId;
@@ -58,7 +53,7 @@ public class Article {
     public void setTitle(String title) {
         if (title.length() <= 100)
             this.title = title;
-        System.out.println("error:the title length is more than valid length");
+        else this.title = "0.0";
     }
 
     public String getBrief() {
@@ -77,11 +72,11 @@ public class Article {
         this.content = content;
     }
 
-    public Date getCreateDate() {
+    public String getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(String createDate) {
         this.createDate = createDate;
     }
 
@@ -102,7 +97,6 @@ public class Article {
                 ", content='" + content + '\'' +
                 ", createDate=" + createDate +
                 ", isPublished=" + isPublished +
-                ", userID=" + userID +
                 ", user=" + user +
                 "\n" + '}';
     }
