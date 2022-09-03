@@ -44,7 +44,7 @@ public class Main {
                     }
                     user.setNationalCode(nationalCode);
                     user.setPassword(nationalCode);
-                    System.out.println("enter your birthday");
+                    System.out.println("enter your birthday like : 1376_02_01 ");
                     user.setBirthday(scanner.nextLine());
                     int check = userRepository.register(user);
                     if (check > 0)

@@ -77,7 +77,12 @@ public class Article {
     }
 
     public void setCreateDate(String createDate) {
-        this.createDate = createDate;
+        String[] creats = createDate.split("_");
+        for (int i = 0; i < creats.length; i++) {
+            if (creats[0].length() == 4 && Integer.parseInt(creats[1]) <= 12 && Integer.parseInt(creats[2]) <= 31) {
+                this.createDate = createDate;
+            }
+        }
     }
 
     public boolean isPublished() {

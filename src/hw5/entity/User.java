@@ -47,7 +47,12 @@ public class User {
     }
 
     public void setBirthday(String birthday) {
-        this.birthday = birthday;
+        String [] birthdays=birthday.split("_");
+        for (int i=0 ; i < birthdays.length ;i++){
+            if(birthdays[0].length()==4 && Integer.parseInt(birthdays[1]) <=12 && Integer.parseInt(birthdays[2]) <=31){
+                this.birthday=birthday;
+            }
+        }
     }
 
     public String getPassword() {
